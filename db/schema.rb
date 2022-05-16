@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_05_16_065027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "rentals", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.bigint "shoe_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shoe_id"], name: "index_rentals_on_shoe_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
+  create_table "shoes", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.float "price"
+    t.float "size"
+    t.string "category"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shoes_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "rentals", "shoes"
+  add_foreign_key "rentals", "users"
+  add_foreign_key "shoes", "users"
 end

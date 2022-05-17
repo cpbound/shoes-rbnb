@@ -1,8 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p>Currently Logged in as</p>
-<p>======</p>
-<% if user_signed_in? %>
-  <%= current_user.email %>
-<% end %>
-<p>======</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2017/02/12/16/46/shoes-2060519_1280.jpg);">
+  <div class="container">
+    <h1>Find your shoes!</h1>
+    <p>you find out everything what you want</p>
+    <%= link_to "All shoes", shoes_path, class: "btn-light text-decoration-none" %>
+  </div>
+</div>

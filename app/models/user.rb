@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :shoes
   has_many :shoes, through: :rentals
-  validates :name, :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 end

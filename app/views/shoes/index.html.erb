@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="cards">
+    <% @shoes.each do |shoe| %>
+      <div class="card-trip">
+        <%= cl_image_tag shoe.photo.key, height: 300, width: 400, crop: :fill %>
+        <h2 class="shoe-size">size: <%= shoe.size %></h2>
+        <div class="card-trip-infos">
+          <h1><%= shoe.name %></h1>
+          <div class="card-price">
+            <h2 class="card-trip-pricing">$<%= shoe.price %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 class RentalPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-     def resolve
-      scope.all
-     end
+    def resolve
+      user.rentals
+    end
   end
 
   def index?

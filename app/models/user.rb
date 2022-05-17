@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :shoes
-  has_many :shoes, through: :rentals
+  has_many :rentals
+  has_many :rentals_as_owner, through: :shoes, source: :rentals
   validates :email, presence: true, uniqueness: true
 end

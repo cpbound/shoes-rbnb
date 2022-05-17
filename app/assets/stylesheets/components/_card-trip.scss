@@ -45,6 +45,7 @@
 }
 .card-price{
   display: flex;
+  flex-direction: column;
 }
 .shoe-size{
   text-align: right;

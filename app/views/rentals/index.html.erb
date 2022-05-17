@@ -1,5 +1,6 @@
 <ul>
   <% @rentals.each do |rental| %>
+   <%#= cl_image_tag rental.shoe.photo.key, height: 300, width: 400, crop: :fill %>
   <li>Start: <%= rental.start_date %></li>
   <li>End: <%=  rental.end_date %></li>
   <li>Shoe's name: <%= rental.shoe.name %></li>
@@ -8,5 +9,10 @@
   <li>Shoe's size: <%= rental.shoe.size %></li>
   <li>Owner's name: <%= rental.shoe.user.name %></li>
   <li>Owner's email: <%= rental.shoe.user.email %></li>
+  <br>
 <% end %>
 </ul>
+
+<%= link_to shoes_path, class:"text-decoration-none text-success" do %>
+  Back<i class="fas fa-shoe-prints"></i>
+<% end %>

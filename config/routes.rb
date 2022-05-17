@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :shoes do
     resources :rentals, only: [ :new, :create ]
   end
+
+  namespace :owner do
+    resources :rentals, only: :index
+  end
 end

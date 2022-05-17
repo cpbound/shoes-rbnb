@@ -1,0 +1,12 @@
+<ul>
+  <% @rentals.each do |rental| %>
+  <li>Start: <%= rental.start_date %></li>
+  <li>End: <%=  rental.end_date %></li>
+  <li>Shoe's name: <%= rental.shoe.name %></li>
+  <li>Shoe's color: <%= rental.shoe.color %></li>
+  <li>Shoe's price: <%= rental.shoe.price %>¥</li>
+  <li>Shoe's size: <%= rental.shoe.size %></li>
+  <li>Owner's name: <%= rental.shoe.user.name %></li>
+  <li>Owner's email: <%= rental.shoe.user.email %></li>
+<% end %>
+</ul>

@@ -34,6 +34,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 
 # ADDED FUN STUFFS
 gem 'devise'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'

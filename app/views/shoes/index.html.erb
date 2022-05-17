@@ -1,7 +1,7 @@
 <div class="container">
   <div class="cards">
     <% @shoes.each do |shoe| %>
-      <%= link_to shoe_path(shoe) do %>
+      <%= link_to shoe_path(shoe),class:"text-decoration-none" do %>
         <div class="card-trip">
           <%= cl_image_tag shoe.photo.key, height: 300, width: 400, crop: :fill %>
           <h2 class="shoe-size">size: <%= shoe.size %></h2>

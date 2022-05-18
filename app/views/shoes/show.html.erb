@@ -1,27 +1,33 @@
-<div class="container p-3">
+<div class="container p-4">
   <div class="row">
-    <div class="col-6">
-      <%= cl_image_tag @shoe.photo.key, height: 300, width: 400, crop: :fill %>
+
+    <div class="col-7">
+      <%= cl_image_tag @shoe.photo.key, height: 350, width: 500, crop: :fill %>
+
     </div>
-    <div class="col-6">
-      <h1 clas="font-weight-bold"><%= @shoe.name %></h1>
-      <div class="shoe-detail">
-        <p>category: </p>
-        <p><%= @shoe.category %></p>
+    <div class="col-5">
+      <div class="shoe-container">
+        <h1 class="font-weight-bold"><%= @shoe.name %></h1>
+        <div class="shoe-details">
+          <div class="shoe-detail">
+            <p class="shoe-detail-type">category</p>
+            <p><%= @shoe.category %></p>
+          </div>
+          <div class="shoe-detail">
+            <p class="shoe-detail-type">size</p>
+            <p><%= @shoe.size %></p>
+          </div>
+          <div class="shoe-detail">
+            <p class="shoe-detail-type">color</p>
+            <p><%= @shoe.color %></p>
+          </div>
+        </div>
+        <%= simple_form_for [ @shoe, @rental ] do |f| %>
+          <%= f.input :start_date, html5: true %>
+          <%= f.input :end_date, html5: true %>
+          <%= f.submit class: 'btn btn-outline-secondary btn-lg'%>
+        <% end %>
       </div>
-      <div class="shoe-detail">
-        <p>size: </p>
-        <p><%= @shoe.size %></p>
-      </div>
-      <div class="shoe-detail">
-        <p>color: </p>
-        <p><%= @shoe.color %></p>
-      </div>
-      <%= simple_form_for [ @shoe, @rental ] do |f| %>
-        <%= f.input :start_date, html5: true %>
-        <%= f.input :end_date, html5: true %>
-        <%= f.submit class: 'btn btn-primary'%>
-      <% end %>
     </div>
   </div>
   <%= link_to shoes_path, class:"text-decoration-none text-success" do %>

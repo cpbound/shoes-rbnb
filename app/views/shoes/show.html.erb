@@ -5,7 +5,10 @@
     </div>
     <div class="col-5">
       <div class="shoe-container">
-        <h1 class="font-weight-bold"><%= @shoe.name %></h1>
+        <div class="shoe-title">
+          <h1 class="font-weight-bold"><%= @shoe.name %></h1>
+          <p class="font-weight-bold">$<%= @shoe.price %></p>
+        </div>
         <div class="shoe-details">
           <div class="shoe-detail">
             <p class="shoe-detail-type">category</p>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="apple-touch-icon"  href="favicon.ico">
+  <link rel="icon" type="image/png"  href="favicon.ico">
     <title>ShoesRbnb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -12,7 +14,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body style="min-height: 100vh; display: flex; flex-direction: column">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%# Added from Devise setup %>

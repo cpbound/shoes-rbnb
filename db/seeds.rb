@@ -1,7 +1,7 @@
 require "faker"
 require "open-uri"
 
-patrons = ["Azat","Christian","Devin","Hakuyo","Yuki","Nana","Bora","Reina","Shingo","Edmund","Tirso","James","Luis","Shinji","Kyle","Celso","Kenji","Shunjiro",]
+patrons = ["Azat","Chris","Devin","Harry","Yuki","Nana","Bora","Reina","Shingo","Edmund","Tirso","James","Luis","Shinji","Kyle","Celso","Kenji","Shunjiro",]
 shoe_name = ["Boots","Pumps","Sneakers","Heels","Flats","Sandals","Loafers","Moccasins","Platform Shoes","Clogs"]
 shoe_categories = ["Dress","Casual", ]
 
@@ -14,6 +14,7 @@ User.destroy_all
 puts "Creating #{patrons.count} lives"
 patrons.each do |patron|
   User.create!(
+    name: patron,
     email: "#{patron}@shoesRcool.net",
     password: "123123",
   )

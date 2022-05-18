@@ -9,4 +9,5 @@ class ShoesController < ApplicationController
     authorize @shoe
     @rental = Rental.new
   end
+
 end

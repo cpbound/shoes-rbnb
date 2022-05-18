@@ -1,4 +1,5 @@
 class ShoesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
     @shoes = policy_scope(Shoe).order(created_at: :desc)
   end

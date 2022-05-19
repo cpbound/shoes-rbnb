@@ -20,20 +20,22 @@
             <h2 class="card-trip-owner-name">Owner's name: <%= rental.shoe.user.name %></h2>
             <h2 class="card-trip-owner-email">Owner's email: <%= rental.shoe.user.email %></h2>
             <h2 class="card-trip-owner-email">Booking Status: <%= rental.status %></h2>
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-              <label class="btn btn-outline-primary" for="btnradio1">Decline</label>
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="on" checked>
-              <label class="btn btn-outline-primary" for="btnradio2">Pending</label>
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-              <label class="btn btn-outline-primary" for="btnradio3">Confirm</label>
-            </div>
+            <%= simple_form_for rental do |f| %>
+              <%= f.input :status, as: :hidden, input_html: {value: "confirmed"} %>
+              <%= f.submit "Confirm", class: "btn btn-info" %>
+            <% end %>
+            <%= simple_form_for rental do |f| %>
+              <%= f.input :status, as: :hidden, input_html: {value: "declined"} %>
+              <%= f.submit "Decline", class: "btn btn-info" %>
+            <% end %>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
-  <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
-    Back<i class="fas fa-shoe-prints text-align-center"></i>
-  <% end %>
+<% end %>
+</div>
+<%= link_to shoes_path, class:"text-decoration-none text-success" do %>
+  Back<i class="fas fa-shoe-prints text-align-center"></i>
+<% end %>
 </div>

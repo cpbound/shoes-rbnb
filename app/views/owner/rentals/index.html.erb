@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    <h1>SOMEONE WANTS THESE SHOES BRAH</h1>
+  </div>
   <div class="cards">
     <% @rentals.each do |rental| %>
       <div class="card-trip">
@@ -17,6 +20,14 @@
             <h2 class="card-trip-owner-name">Owner's name: <%= rental.shoe.user.name %></h2>
             <h2 class="card-trip-owner-email">Owner's email: <%= rental.shoe.user.email %></h2>
             <h2 class="card-trip-owner-email">Booking Status: <%= rental.status %></h2>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio1">Decline</label>
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="on" checked>
+              <label class="btn btn-outline-primary" for="btnradio2">Pending</label>
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio3">Confirm</label>
+            </div>
           </div>
         </div>
       </div>

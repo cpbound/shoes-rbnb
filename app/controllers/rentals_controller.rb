@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to rentals_path
     else
-      render :new
+      render :index
     end
   end
 

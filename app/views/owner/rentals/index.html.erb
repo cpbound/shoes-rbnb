@@ -19,21 +19,25 @@
             <h2 class="card-trip-owner-name">Owner's name: <%= rental.shoe.user.name %></h2>
             <h2 class="card-trip-owner-email">Owner's email: <%= rental.shoe.user.email %></h2>
             <h2 class="card-trip-owner-email">Booking Status: <%= rental.status %></h2>
-            <%= simple_form_for rental do |f| %>
-              <%= f.input :status, as: :hidden, input_html: {value: "confirmed"} %>
-              <%= f.submit "Confirm", class: "btn btn-info" %>
-            <% end %>
-            <%= simple_form_for rental do |f| %>
-              <%= f.input :status, as: :hidden, input_html: {value: "declined"} %>
-              <%= f.submit "Decline", class: "btn btn-info" %>
+            <% if rental.pending? %>
+              <%= simple_form_for rental do |f| %>
+                <%= f.input :status, as: :hidden, input_html: {value: "confirmed"} %>
+                <%= f.submit "Confirm", class: "btn btn-info" %>
+              <% end %>
+              <%= simple_form_for rental do |f| %>
+                <%= f.input :status, as: :hidden, input_html: {value: "declined"} %>
+                <%= f.submit "Decline", class: "btn btn-info" %>
+              <% end %>
+            <% else %>
+              <% rental.status %>
             <% end %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-<div class="d-flex justify-content-center">
-  <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
-    Back<i class="fas fa-shoe-prints text-align-center"></i>
-  <% end %>
-</div>
+  <div class="d-flex justify-content-center">
+    <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
+      Back<i class="fas fa-shoe-prints text-align-center"></i>
+    <% end %>
+  </div>

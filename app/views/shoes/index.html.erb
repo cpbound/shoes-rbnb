@@ -1,4 +1,12 @@
 <div class="container">
+  <%= form_tag shoes_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find perfect shoes by category or color...."
+  %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div class="cards">
     <% @shoes.each do |shoe| %>
       <%= link_to shoe_path(shoe),class:"text-decoration-none" do %>

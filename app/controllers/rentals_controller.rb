@@ -12,12 +12,22 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to rentals_path
     else
-      render "shoes/show"
+      render :index
+    end
+  end
+
+  def update
+    @rental = Rental.find(params[:id])
+    authorize @rental
+    if @rental.update(rental_params)
+      redirect_to owner_rentals_path
+    else
+      render "owner/rentals/index"
     end
   end
 
   private
   def rental_params
-    params.require(:rental).permit(:start_date, :end_date, :shoe_id)
+    params.require(:rental).permit(:start_date, :end_date, :shoe_id, :status)
   end
 end

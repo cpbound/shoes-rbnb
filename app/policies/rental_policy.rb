@@ -17,4 +17,8 @@ class RentalPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def update?
+    record.user == user || record.shoe.user == user
+  end
 end

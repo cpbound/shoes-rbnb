@@ -1,0 +1,9 @@
+<%= simple_form_for @shoe do |f| %>
+  <%= f.input :name %>
+  <%= f.input :color %>
+  <%= f.input :price %>
+  <%= f.input :size %>
+  <%= f.input :category %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>

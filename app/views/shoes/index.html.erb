@@ -11,10 +11,10 @@
     <% @shoes.each do |shoe| %>
       <%= link_to shoe_path(shoe),class:"text-decoration-none" do %>
         <div class="card-trip">
-        <% if shoe.photo.attached? %>
-          <%= cl_image_tag shoe.photo.key, height: 300, width: 400, crop: :fill %>
+          <% if shoe.photo.attached? %>
+            <%= cl_image_tag shoe.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-          <%= image_tag "shoe-logo.png" %>
+            <%= image_tag "shoe-logo.png" %>
           <% end %>
           <h2 class="shoe-size">size: <%= shoe.size %></h2>
           <div class="card-trip-infos">

@@ -1,17 +1,17 @@
 <div class="container p-4">
   <div class="row">
     <div class="col-12 col-lg-7">
-    <% if @shoe.photo.attached? %>
-      <%= cl_image_tag @shoe.photo.key, height: 350, width: 500, crop: :fill %>
+      <% if @shoe.photo.attached? %>
+        <%= cl_image_tag @shoe.photo.key, height: 350, width: 500, crop: :fill %>
       <% else %>
-      <%= image_tag "shoe-logo.png", class: "shoe-show"%>
+        <%= image_tag "shoe-logo.png", class: "shoe-show"%>
       <% end %>
     </div>
     <div class="col-12 col-lg-5">
       <div class="shoe-container">
         <div class="shoe-title">
           <h1 class="font-weight-bold"><%= @shoe.name %></h1>
-          <p class="font-weight-bold">$<%= @shoe.price %></p>
+          <p class="font-weight-bold">$<%= @shoe.price %>/day</p>
         </div>
         <div class="shoe-details">
           <div class="shoe-detail">
@@ -28,7 +28,7 @@
           </div>
         </div>
         <%= simple_form_for [ @shoe, @rental ] do |f| %>
-          <%= f.input :start_date, html5: true %>
+          <%= f.input :start_date, html5: true, input_html: { min: Date.today }%>
           <%= f.input :end_date, html5: true %>
           <%= f.submit class: 'btn btn-outline-success btn-lg'%>
         <% end %>
@@ -36,8 +36,8 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-  <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
-    Back<i class="fas fa-shoe-prints"></i>
-  <% end %>
+    <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
+      Back<i class="fas fa-shoe-prints"></i>
+    <% end %>
   </div>
 </div>

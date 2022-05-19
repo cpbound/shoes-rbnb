@@ -11,7 +11,7 @@
         <div class="card-trip-infos">
           <h1><%= rental.shoe.name %></h1>
           <div class="card-price">
-            <h2 class="card-trip-pricing">price: $<%= rental.shoe.price %></h2>
+            <h2 class="card-trip-pricing">price: $<%= rental.shoe.price * ( rental.end_date - rental.start_date) %></h2>
             <h2 class="card-trip-start-date">start: <%= rental.start_date %></h2>
             <h2 class="card-trip-end-date">end: <%= rental.end_date %></h2>
             <h2 class="card-trip-owner-name">Owner's name: <%= rental.shoe.user.name %></h2>

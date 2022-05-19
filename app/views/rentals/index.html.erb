@@ -1,10 +1,9 @@
-
 <div class="container">
   <div class="cards">
     <% @rentals.each do |rental| %>
       <div class="card-trip">
-      <% if rental.shoe.photo.attached? %>
-        <%= cl_image_tag rental.shoe.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if rental.shoe.photo.attached? %>
+          <%= cl_image_tag rental.shoe.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
           <p>no photo</p>
         <% end %>
@@ -17,12 +16,13 @@
             <h2 class="card-trip-end-date">end: <%= rental.end_date %></h2>
             <h2 class="card-trip-owner-name">Owner's name: <%= rental.shoe.user.name %></h2>
             <h2 class="card-trip-owner-email">Owner's email: <%= rental.shoe.user.email %></h2>
+            <h2 class="card-trip-owner-email">Booking Status: <%= rental.status %></h2>
           </div>
         </div>
       </div>
     <% end %>
   </div>
   <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
-  Back<i class="fas fa-shoe-prints text-align-center"></i>
+    Back<i class="fas fa-shoe-prints text-align-center"></i>
   <% end %>
 </div>

@@ -15,7 +15,6 @@ class ShoesController < ApplicationController
     @rental = Rental.new
   end
 
-
   def new
     @shoe = Shoe.new
     authorize @shoe
@@ -30,8 +29,8 @@ class ShoesController < ApplicationController
   end
 
   private
+
   def shoe_params
     params.require(:shoe).permit(:name, :color, :price, :size, :category, :photo)
   end
-
 end

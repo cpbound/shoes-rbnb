@@ -1,11 +1,13 @@
 <div class="container">
-  <%= form_tag shoes_path, method: :get do %>
+  <%= form_tag shoes_path, method: :get, class: 'd-flex m-4' do %>
     <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control border-radius",
     placeholder: "Find perfect shoes by category or color...."
   %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= button_tag type:'submit', style: 'border-style:none' do %>
+      <i class="fas fa-search border-style-none"></i>
+    <% end %>
   <% end %>
   <div class="cards">
     <% @shoes.each do |shoe| %>

@@ -17,10 +17,8 @@ class RentalsController < ApplicationController
     end
   end
 
-
   private
   def rental_params
     params.require(:rental).permit(:start_date, :end_date, :shoe_id)
-
   end
 end

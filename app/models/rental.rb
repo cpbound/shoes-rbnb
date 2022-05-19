@@ -11,4 +11,5 @@ class Rental < ApplicationRecord
   def formatted_end_date
     end_date.strftime('%b %d')
   end
+
 end

@@ -3,4 +3,12 @@ class Rental < ApplicationRecord
   belongs_to :user
   enum status: [ :pending, :confirmed, :declined ]
   validates :start_date, :end_date, presence: true
+
+  def formatted_start_date
+    start_date.strftime('%b %d')
+  end
+
+  def formatted_end_date
+    end_date.strftime('%b %d')
+  end
 end

@@ -2,22 +2,20 @@
   <div class="container">
     <h1>シュShüüシュ</h1>
     <p>The fabulous shoes bring you somewhere cool</p>
-
-     <%= link_to "Find all shoes!", shoes_path, class: "btn-light btn-lg text-decoration-none m-5" %>
+    <%= link_to "All shoes", shoes_path, class: "btn btn-success btn-lg text-decoration-none text-white rounded" %>
     <div class="row justify-content-center">
       <div class="col-4">
         <%= form_tag shoes_path, method: :get, class: 'd-flex' do %>
           <%= text_field_tag :query,
     params[:query],
-    class: "form-control border-radius",
+    class: "form-control",
     placeholder: "Find perfect shoes!"
   %>
-          <%= button_tag type:'submit', style: 'border-style:none' do %>
+          <%= button_tag type:'submit', style: 'border-style:none', class: 'rounded' do %>
             <i class="fas fa-search border-style-none"></i>
           <% end %>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>

@@ -12,4 +12,11 @@ class Rental < ApplicationRecord
     end_date.strftime('%b %d')
   end
 
+  def days
+    (end_date - start_date).to_i
+  end
+
+  def total_price
+    (shoe.price * days).round
+  end
 end

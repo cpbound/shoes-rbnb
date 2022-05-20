@@ -1,0 +1,21 @@
+<div class="cards">
+    <% rentals.each do |rental| %>
+      <div class="card-trip">
+        <% if rental.shoe.photo.attached? %>
+          <%= cl_image_tag rental.shoe.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <p>no photo</p>
+        <% end %>
+        <h2 class="shoe-size">size: <%= rental.shoe.size %></h2>
+        <div class="card-trip-infos">
+          <h2><%= rental.shoe.name %></h2>
+          <div class="card-price">
+            <h2 class="card-trip-pricing"><i class="fas fa-cash-register"></i> <%= rental.shoe.price * ( rental.end_date - rental.start_date) %> <i class="fas fa-euro-sign"></i></h2>
+            <h2 class="card-trip-start-date"><i class="far fa-calendar-alt"></i> <%= rental.start_date %> - <%= rental.formatted_end_date %></h2>
+            <h2 class="card-trip-owner-name"><i class="fas fa-user"></i>  <%= rental.shoe.user.name %></h2>
+            <h2 class="card-trip-owner-email"><i class="fas fa-cart-plus"></i> <%= rental.status %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

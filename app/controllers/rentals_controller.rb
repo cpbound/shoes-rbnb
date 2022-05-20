@@ -1,6 +1,9 @@
 class RentalsController < ApplicationController
   def index
     @rentals = policy_scope(Rental).order(created_at: :desc)
+    @pending_rentals = @rentals.pending
+    @confirmed_rentals = @rentals.confirmed
+    @declined_rentals = @rentals.declined
   end
 
   def create

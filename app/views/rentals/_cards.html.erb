@@ -6,14 +6,15 @@
         <% else %>
           <p>no photo</p>
         <% end %>
-        <h2 class="shoe-size">size: <%= rental.shoe.size %></h2>
-        <div class="card-trip-infos">
+        <div class="d-flex justify-content-between align-items-center">
           <h2><%= rental.shoe.name %></h2>
+        <h2 class="shoe-size">size: <%= rental.shoe.size %></h2>
+        </div>
+        <div class="card-trip-infos">
           <div class="card-price">
-            <h2 class="card-trip-pricing"><i class="fas fa-cash-register"></i> <%= rental.shoe.price * ( rental.end_date - rental.start_date) %> <i class="fas fa-euro-sign"></i></h2>
-            <h2 class="card-trip-start-date"><i class="far fa-calendar-alt"></i> <%= rental.start_date %> - <%= rental.formatted_end_date %></h2>
-            <h2 class="card-trip-owner-email"><i class="fas fa-cart-plus"></i> <%= rental.status %></h2>
-            <h2 class="card-trip-owner-name"><i class="fas fa-user"></i>  <%= rental.shoe.user.name %></h2>
+            <h2 class="card-trip-pricing opacity-75"><i class="fas fa-cash-register"></i> <%= rental.total_price %> <i class="fas fa-euro-sign"></i></h2>
+            <h2 class="card-trip-start-date opacity-75"><i class="far fa-calendar-alt"></i> <%= rental.formatted_start_date %> - <%= rental.formatted_end_date %></h2>
+            <h2 class="card-trip-owner-name"><i class="fas fa-user"></i>  <%= rental.shoe.user.name %>: <%= rental.shoe.user.email %></h2>
           </div>
         </div>
       </div>

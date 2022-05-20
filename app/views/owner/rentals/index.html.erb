@@ -16,9 +16,8 @@
           <div class="card-price">
             <h2 class="card-trip-pricing"><i class="fas fa-hand-holding-usd"></i> <%= rental.shoe.price %>¥</h2>
             <h2 class="card-trip-start-date"><i class="far fa-calendar-alt"></i> <%= rental.formatted_start_date %> - <%= rental.formatted_end_date %> </h2>
-            <h2 class="card-trip-owner-name">Owner's name: <%= rental.shoe.user.name %></h2>
-            <h2 class="card-trip-owner-email">Owner's email: <%= rental.shoe.user.email %></h2>
-            <h2 class="card-trip-owner-email">Booking Status: <%= rental.status %></h2>
+            <h2 class="card-trip-owner-name"><i class="fas fa-user"></i> <%= rental.shoe.user.name %></h2>
+            <h2 class="card-trip-owner-email"><i class="fas fa-cart-plus"></i> <%= rental.status %></h2>
             <% if rental.pending? %>
               <%= simple_form_for rental do |f| %>
                 <%= f.input :status, as: :hidden, input_html: {value: "confirmed"} %>

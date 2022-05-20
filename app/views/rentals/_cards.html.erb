@@ -12,8 +12,8 @@
           <div class="card-price">
             <h2 class="card-trip-pricing"><i class="fas fa-cash-register"></i> <%= rental.shoe.price * ( rental.end_date - rental.start_date) %> <i class="fas fa-euro-sign"></i></h2>
             <h2 class="card-trip-start-date"><i class="far fa-calendar-alt"></i> <%= rental.start_date %> - <%= rental.formatted_end_date %></h2>
-            <h2 class="card-trip-owner-name"><i class="fas fa-user"></i>  <%= rental.shoe.user.name %></h2>
             <h2 class="card-trip-owner-email"><i class="fas fa-cart-plus"></i> <%= rental.status %></h2>
+            <h2 class="card-trip-owner-name"><i class="fas fa-user"></i>  <%= rental.shoe.user.name %></h2>
           </div>
         </div>
       </div>

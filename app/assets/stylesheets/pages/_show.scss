@@ -1,6 +1,11 @@
 h1{
-  font-family: "PPEiko Bold";
+  font-family: "Josefin Slab";
 }
+
+h4{
+  font-family: "Josefin Slab";
+}
+
 .shoe-title{
   display: flex;
   justify-content: space-between;
@@ -9,7 +14,8 @@ h1{
   border-bottom: 1px solid rgba(40, 50, 52, 0.2);
 }
 .shoe-title p{
-  font-family: "PPEiko Bold";
+  font-family: "Josefin Slab";
+  font-style: italic;
   font-size: 20px;
 }
 .shoe-container{

@@ -3,7 +3,9 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 10px;
+
   margin: 20px 15px;
+
   border-radius: 5px;
 }
 
@@ -20,7 +22,6 @@
 }
 .card-trip h2 {
   font-size: 19px;
-  font-weight: bold;
   margin: 2px;
   color: black;
 }
@@ -61,4 +62,8 @@
 .shoe-size{
   text-align: right;
   padding: 10px;
+}
+
+h2 {
+  margin-top: 30px;
 }

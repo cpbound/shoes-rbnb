@@ -15,18 +15,24 @@
             <h2 class="card-trip-start-date"><i class="far fa-calendar-alt"></i> <%= rental.formatted_start_date %> - <%= rental.formatted_end_date %> </h2>
             <h2 class="card-trip-owner-name"><i class="fas fa-user"></i> <%= rental.shoe.user.name %></h2>
             <h2 class="card-trip-owner-email"><i class="fas fa-cart-plus"></i> <%= rental.status %></h2>
-            <% if rental.pending? %>
-              <%= simple_form_for rental do |f| %>
-                <%= f.input :status, as: :hidden, input_html: {value: "confirmed"} %>
-                <%= f.submit "Confirm", class: "btn btn-info" %>
+            <div class="d-flex">
+              <% if rental.pending? %>
+                <%= simple_form_for rental do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: {value: "confirmed"} %>
+                  <%= f.button :button , class: "btn btn-success m-2" do %>
+                    <small><i class="fas fa-check"></i> Accept</small>
+                  <% end  %>
+                <% end %>
+                <%= simple_form_for rental do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: {value: "declined"} %>
+                  <%= f.button :button, class: "btn btn-info m-2" do %>
+                    <small><i class="fas fa-times"></i> Decline</small>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% rental.status %>
               <% end %>
-              <%= simple_form_for rental do |f| %>
-                <%= f.input :status, as: :hidden, input_html: {value: "declined"} %>
-                <%= f.submit "Decline", class: "btn btn-info" %>
-              <% end %>
-            <% else %>
-              <% rental.status %>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>

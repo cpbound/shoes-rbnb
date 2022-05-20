@@ -1,20 +1,23 @@
 require "faker"
 require "open-uri"
 
-patrons = ["Azat","Chris","Devin","Harry","Yuki","Nana","Bora","Reina","Shingo","Edmund","Tirso","James","Luis","Shinji","Kyle","Celso","Kenji","Shunjiro",]
-shoe_name = ["Boots","Pumps","Sneakers","Heels","Flats","Sandals","Loafers","Moccasins","Platform Shoes","Clogs"]
-shoe_categories = ["Dress","Casual", ]
+patrons = ["Azat","Chris","Devin","Harry","Yuki","Nana","Bora","Reina","Shingo"]
+shoe_name = ["Boots","Pumps","Sneakers","Heels","Flats","Sandals","Loafers",]
+shoe_categories = [ "Dress","Casual", ]
+colours = ["black", "brown", "gold", "cream", "green", "grey", "red", "yellow"]
+
 
 puts 'Taking Shoes Off'
 Shoe.destroy_all
 puts "Killing users"
 User.destroy_all
 
-
 puts "Creating #{patrons.count} lives"
 patrons.each do |patron|
   User.create!(
     name: patron,
+    address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
+    phone: Faker::PhoneNumber.cell_phone,
     email: "#{patron}@shoesRcool.net",
     password: "123123",
   )
@@ -25,7 +28,7 @@ puts "Creating #{User.count} sexy shoes"
 User.all.each do |user|
   Shoe.create!(
     name: shoe_name.sample,
-    color: Faker::Color.color_name.capitalize,
+    color: colours.sample,
     price: rand(10..200),
     size: rand(1..15),
     category: shoe_categories.sample,
@@ -41,7 +44,9 @@ Shoe.all.each do |shoe|
 end
 puts "#{Shoe.count} pairs of shoes, #{Shoe.count} pictures."
 
-# puts "Creating rental agreement"
-# Rental.destroy_all
-
-# puts "Creating #{User.count} booking"
+puts "Artifying #{User.count} pairs of shoes"
+User.all.each do |user|
+  file = URI.open('https://thispersondoesnotexist.com/image')
+  user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
+end
+puts "#{User.count} pairs of shoes, #{User.count} pictures."

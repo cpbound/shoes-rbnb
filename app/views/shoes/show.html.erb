@@ -1,13 +1,13 @@
 <div class="container p-4">
   <div class="row">
-    <div class="col-12 col-lg-7">
+    <div class="col-12 col-lg-6">
       <% if @shoe.photo.attached? %>
-        <%= cl_image_tag @shoe.photo.key, height: 350, width: 500, crop: :fill %>
+        <%= cl_image_tag @shoe.photo.key, class: "w-100" %>
       <% else %>
         <%= image_tag "shoe-logo.png", class: "shoe-show"%>
       <% end %>
     </div>
-    <div class="col-12 col-lg-5">
+    <div class="col-12 col-lg-6">
       <div class="shoe-container">
         <div class="shoe-title">
           <h1 class="font-weight-bold"><%= @shoe.name %></h1>
@@ -27,15 +27,23 @@
             <p><%= @shoe.color %></p>
           </div>
         </div>
+      <div class="notification mt-3">
+        <img src='https://randomuser.me/api/portraits/lego/0.jpg' class="avatar-large" />
+        <div class="notification-content">
+          <p> <%= @shoe.user.name %></p>
+          <p><strong> <%= @shoe.user.email %></strong> </p>
+        </div>
+      </div>
         <%= simple_form_for [ @shoe, @rental ] do |f| %>
           <%= f.input :start_date, html5: true, input_html: { min: Date.today }%>
           <%= f.input :end_date, html5: true %>
-          <%= f.submit class: 'btn btn-outline-success btn-lg'%>
+          <%= f.submit "Request", class: 'btn btn-outline-success btn-lg'%>
         <% end %>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
+
+  <div class="d-flex justify-content-end">
     <%= link_to shoes_path, class:"text-decoration-none text-success" do %>
       Back<i class="fas fa-shoe-prints"></i>
     <% end %>

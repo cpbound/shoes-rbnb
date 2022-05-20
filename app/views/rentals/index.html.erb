@@ -12,11 +12,11 @@
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade py-3 show active" id="Pendings" role="tabpanel" aria-labelledby="home-tab">
-      Your booking is waiting for an answer
+      I am waiting a confirmation
       <%= render "rentals/cards", rentals: @pending_rentals %>
     </div>
     <div class="tab-pane fade py-3" id="confirmed" role="tabpanel" aria-labelledby="profile-tab">
-      You owes the shoes!
+      They are yours!
       <%= render "rentals/cards", rentals: @confirmed_rentals %>
     </div>
     <div class="tab-pane fade py-3" id="Declined" role="tabpanel" aria-labelledby="converstion-tab">

@@ -1,6 +1,6 @@
 class Owner::RentalsController < ApplicationController
   def index
-    @rentals = policy_scope([:owner, Rental])
+    @rentals = policy_scope([:owner, Rental]).order(created_at: :desc)
   end
 
   private
